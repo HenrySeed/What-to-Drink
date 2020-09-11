@@ -20,7 +20,7 @@ function App() {
     const recipeTiles: JSX.Element[] = [];
     for (const recipe of recipes) {
         const ingredientNames = recipe.ingredients
-            .map(val => val.ingredient)
+            .map(val => (val.ingredient ? val.ingredient : val.special))
             .concat([recipe.garnish])
             .slice(0, 3);
         recipeTiles.push(
@@ -39,6 +39,7 @@ function App() {
         <div className="App">
             <div className="bgImage" />
             <div className="bgFilter" />
+
             <div className="contentContainer">
                 {openRecipe ? (
                     <RecipeView
@@ -46,7 +47,10 @@ function App() {
                         onClose={() => setOpenRecipe(undefined)}
                     />
                 ) : (
-                    <div className="recipeList">{recipeTiles}</div>
+                    <span>
+                        <div className="logo">What to Drink</div>
+                        <div className="recipeList">{recipeTiles}</div>
+                    </span>
                 )}
             </div>
         </div>

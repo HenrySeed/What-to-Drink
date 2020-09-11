@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
 .App {
     text-align: center;
     align-items: center;
@@ -6,6 +8,14 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+
+.logo {
+    font-family: "Abril Fatface", cursive;
+    position: absolute;
+    width: 100%;
+    margin-top: 40px;
+    font-size: 60pt;
 }
 
 .bgImage {
@@ -20,6 +30,18 @@
     left: 0px;
 }
 
+.recipeTile {
+    width: 300px;
+    margin-bottom: 30px;
+    display: inline-block;
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+.recipeTile > h3 {
+    font-size: 16pt;
+}
+
 .bgFilter {
     background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
@@ -31,6 +53,11 @@
 }
 
 .recipeList {
+    column-count: 3;
+    margin-top: 200px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contentContainer {
@@ -43,4 +70,16 @@
 
 ul {
     list-style: none;
+}
+
+@media only screen and (max-width: 1010px) {
+    .recipeList {
+        column-count: 2;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .recipeList {
+        column-count: 1;
+    }
 }
