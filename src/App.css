@@ -1,0 +1,46 @@
+.App {
+    text-align: center;
+    align-items: center;
+    min-height: calc(100vh);
+    width: 100%;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.bgImage {
+    background-image: url("resources/bg_1.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.bgFilter {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+}
+
+.recipeList {
+}
+
+.contentContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    overflow: scroll;
+}
+
+ul {
+    list-style: none;
+}
