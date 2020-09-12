@@ -13,6 +13,7 @@
     width: 100%;
     position: relative;
     height: 50vh;
+    min-height: 300px;
     box-sizing: border-box;
     padding-top: 40px;
     top: 0px;
@@ -71,6 +72,9 @@ ul {
     .recipeList {
         column-count: 1;
     }
+    .logo {
+        margin-top: 0;
+    }
     .recipeList {
         margin-top: 10px;
     }
@@ -80,8 +84,7 @@ ul {
 }
 @media only screen and (max-width: 400px) {
     .logo {
-        font-size: 40pt;
-        margin-top: 0;
+        font-size: 50pt;
     }
     .bgImage {
         height: 300px;
