@@ -10,3 +10,12 @@ input {
     outline: none;
     border: 3px solid #ffffff;
 }
+
+.closeIcon {
+    transform: rotate(360deg);
+    margin-left: -45px;
+    margin-top: 45px;
+    vertical-align: middle;
+    cursor: pointer;
+    position: absolute;
+}

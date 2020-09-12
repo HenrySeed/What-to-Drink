@@ -23,7 +23,7 @@ export class Ingredient {
             this.amount = amount;
             this.unit = usedUnit;
             this.ingredient = name;
-            this.name = name;
+            this.name = name ? name : special;
         } else {
             if (obj.label) {
                 this.name = obj.label;
@@ -39,6 +39,7 @@ export class Ingredient {
 
 export class Recipe {
     name: string;
+    key: string;
     category: string;
     ingredients: Array<Ingredient>;
     preparation: string;
@@ -47,6 +48,7 @@ export class Recipe {
 
     constructor(obj: any) {
         this.name = obj.name;
+        this.key = obj.name.replace(/ /g, "_");
         this.category = obj.category;
         this.ingredients = obj.ingredients.map(
             (val: any) => new Ingredient(val)

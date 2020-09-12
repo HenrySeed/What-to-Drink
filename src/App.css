@@ -12,7 +12,7 @@
 }
 
 .appBody {
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 140px);
     display: block;
 }
 
