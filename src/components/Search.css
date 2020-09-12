@@ -14,7 +14,7 @@ input {
 .closeIcon {
     transform: rotate(360deg);
     margin-left: -45px;
-    margin-top: 45px;
+    margin-top: 46px;
     vertical-align: middle;
     cursor: pointer;
     position: absolute;

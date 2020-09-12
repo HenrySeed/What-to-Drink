@@ -43,7 +43,8 @@ function App(props: any) {
         if (!fromUrl) {
             props.history.replace("?search=" + encodeURIComponent(val));
         }
-        if (val.trim() === "") {
+        const lowerSearch = val.toLowerCase();
+        if (lowerSearch.trim() === "") {
             return [];
         } else {
             let results: Map<
@@ -51,7 +52,7 @@ function App(props: any) {
                 { recipe: Recipe; priority: number }
             > = new Map();
 
-            for (const word of val.split(/ |,/g)) {
+            for (const word of lowerSearch.split(/ |,/g)) {
                 if (word.trim() !== "") {
                     let keyResult: Recipe[] = [];
                     for (const [key, value] of Array.from(keywordMap)) {
