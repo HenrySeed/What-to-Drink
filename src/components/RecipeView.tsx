@@ -12,7 +12,7 @@ function RecipeView(props: Props) {
     const path = useLocation().pathname.split("/");
     const recipeKey = path[path.length - 1];
     const recipe = props.recipes.get(recipeKey);
-    console.log(recipeKey, props.recipes);
+
     if (recipe) {
         for (const val of recipe.ingredients) {
             ingredientElems.push(

@@ -13,6 +13,7 @@ function Search(props: Props) {
         <span>
             <input
                 autoFocus
+                placeholder="I have some..."
                 value={props.searchVal}
                 onChange={event => props.onSearch(event.target.value)}
             />

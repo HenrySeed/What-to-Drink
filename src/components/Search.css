@@ -11,6 +11,22 @@ input {
     border: 3px solid #ffffff;
 }
 
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #bbb;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #bbb;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #bbb;
+}
+
 .closeIcon {
     transform: rotate(360deg);
     margin-left: -45px;
