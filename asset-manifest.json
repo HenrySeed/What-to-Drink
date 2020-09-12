@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/What-to-Drink/static/css/main.aa94a14e.chunk.css",
+    "main.js": "/What-to-Drink/static/js/main.0beffd04.chunk.js",
+    "main.js.map": "/What-to-Drink/static/js/main.0beffd04.chunk.js.map",
+    "runtime-main.js": "/What-to-Drink/static/js/runtime-main.62dddeb8.js",
+    "runtime-main.js.map": "/What-to-Drink/static/js/runtime-main.62dddeb8.js.map",
+    "static/js/2.628c5727.chunk.js": "/What-to-Drink/static/js/2.628c5727.chunk.js",
+    "static/js/2.628c5727.chunk.js.map": "/What-to-Drink/static/js/2.628c5727.chunk.js.map",
+    "index.html": "/What-to-Drink/index.html",
+    "precache-manifest.811fd6c9510c48f05075385d2cfd3484.js": "/What-to-Drink/precache-manifest.811fd6c9510c48f05075385d2cfd3484.js",
+    "service-worker.js": "/What-to-Drink/service-worker.js",
+    "static/css/main.aa94a14e.chunk.css.map": "/What-to-Drink/static/css/main.aa94a14e.chunk.css.map",
+    "static/js/2.628c5727.chunk.js.LICENSE.txt": "/What-to-Drink/static/js/2.628c5727.chunk.js.LICENSE.txt",
+    "static/media/HomeView.css": "/What-to-Drink/static/media/bg_1.91bea976.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62dddeb8.js",
+    "static/js/2.628c5727.chunk.js",
+    "static/css/main.aa94a14e.chunk.css",
+    "static/js/main.0beffd04.chunk.js"
+  ]
+}
