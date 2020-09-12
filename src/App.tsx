@@ -120,7 +120,21 @@ function App(props: any) {
                     <Link to="/" className="logo">
                         What to Drink
                     </Link>
-                    <div>&#169; Henry Seed 2020</div>
+                    <div>
+                        &#169;{" "}
+                        <a href="https://henry.nz" target="_blank">
+                            Henry Seed
+                        </a>{" "}
+                        2020
+                    </div>
+                    <div style={{ marginTop: "10px" }}>
+                        <a
+                            href="https://github.com/HenrySeed/What-to-Drink"
+                            target="_blank"
+                        >
+                            Github
+                        </a>
+                    </div>
                 </div>
             </footer>
         </div>
