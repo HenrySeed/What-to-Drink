@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f909d4390518ee1c8ffe648489fecbc2",
+    "revision": "18306c4a71e4fd49e6a3064aafbeaa3d",
     "url": "/What-to-Drink/index.html"
   },
   {
-    "revision": "ad0f5c7f88f436f3a43c",
-    "url": "/What-to-Drink/static/css/main.a1ff2a27.chunk.css"
+    "revision": "d045e606631ecdeeda59",
+    "url": "/What-to-Drink/static/css/main.4afae51c.chunk.css"
   },
   {
-    "revision": "615d7b8f45a5a5c2f685",
-    "url": "/What-to-Drink/static/js/2.9cce00cd.chunk.js"
+    "revision": "e3cde2fa3bbcee7586fa",
+    "url": "/What-to-Drink/static/js/2.149b6691.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/What-to-Drink/static/js/2.9cce00cd.chunk.js.LICENSE.txt"
+    "url": "/What-to-Drink/static/js/2.149b6691.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ad0f5c7f88f436f3a43c",
-    "url": "/What-to-Drink/static/js/main.7f6f19fc.chunk.js"
+    "revision": "d045e606631ecdeeda59",
+    "url": "/What-to-Drink/static/js/main.2042df1a.chunk.js"
   },
   {
     "revision": "6a9f5c728c4d3d6f3d3c",
