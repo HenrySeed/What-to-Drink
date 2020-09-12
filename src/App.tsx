@@ -7,7 +7,7 @@ import { Recipe } from "./modules";
 
 function loadRecipes(): [Recipe[], Map<string, Recipe>] {
     const recipesJSON = require("./data/recipes.json");
-    const recipes = Array.from(recipesJSON).map(val => new Recipe(val));
+    const recipes = Array.from(recipesJSON as any).map(val => new Recipe(val));
     const recipeMap = new Map(recipes.map(val => [val.key, val]));
     return [recipes, recipeMap];
 }

@@ -27,9 +27,9 @@ p {
 }
 
 .Recipe {
-    padding-top: 40px;
+    padding-top: 30px;
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 90%;
+    margin: 0 auto 60px auto;
     position: relative;
 }
