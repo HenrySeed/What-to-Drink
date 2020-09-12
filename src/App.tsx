@@ -122,7 +122,11 @@ function App(props: any) {
                     </Link>
                     <div>
                         &#169;{" "}
-                        <a href="https://henry.nz" target="_blank">
+                        <a
+                            href="https://henry.nz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             Henry Seed
                         </a>{" "}
                         2020
@@ -131,6 +135,7 @@ function App(props: any) {
                         <a
                             href="https://github.com/HenrySeed/What-to-Drink"
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             Github
                         </a>

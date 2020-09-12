@@ -37,8 +37,7 @@ export default function HomeView(props: Props) {
     }
     return (
         <span>
-            <div className="bgImage" />
-            <div className="bgFilter">
+            <div className="bgImage">
                 <div className="logo">What to Drink</div>
                 <Search searchVal={props.searchVal} onSearch={props.onSearch} />
             </div>

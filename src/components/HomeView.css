@@ -7,25 +7,16 @@
 }
 
 .bgImage {
-    background-image: url("../resources/bg_1.jpg");
+    background-image: url("../resources/background_2.jpg");
     background-position: center;
     background-size: cover;
     width: 100%;
-    position: absolute;
-    height: 50vh;
-    top: 0px;
-    left: 0px;
-}
-
-.bgFilter {
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 100%;
+    position: relative;
     height: 50vh;
     box-sizing: border-box;
     padding-top: 40px;
-    top: 0;
-    left: 0;
-    backdrop-filter: blur(5px);
+    top: 0px;
+    left: 0px;
 }
 
 ul {
@@ -79,5 +70,20 @@ ul {
 @media only screen and (max-width: 600px) {
     .recipeList {
         column-count: 1;
+    }
+    .recipeList {
+        margin-top: 10px;
+    }
+    .recipeTile {
+        padding: 10px 10px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .logo {
+        font-size: 40pt;
+        margin-top: 0;
+    }
+    .bgImage {
+        height: 300px;
     }
 }
