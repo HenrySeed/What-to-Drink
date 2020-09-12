@@ -1,18 +1,20 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Recipe } from "../modules";
 import "./RecipeView.css";
 
 interface Props {
-    recipe: Recipe;
-    onClose: () => void;
+    recipes: Map<string, Recipe>;
 }
 
 function RecipeView(props: Props) {
     const ingredientElems = [];
-    for (const val of props.recipe.ingredients) {
-        if (val.special) {
-            ingredientElems.push(<span>{val.special}</span>);
-        } else {
+    const path = useLocation().pathname.split("/");
+    const recipeKey = path[path.length - 1];
+    const recipe = props.recipes.get(recipeKey);
+    console.log(recipeKey, props.recipes);
+    if (recipe) {
+        for (const val of recipe.ingredients) {
             ingredientElems.push(
                 <span>
                     {val.amount}&nbsp;
@@ -21,27 +23,28 @@ function RecipeView(props: Props) {
                 </span>
             );
         }
+        return (
+            <div className="Recipe">
+                <h2>{recipe.name}</h2>
+                <em>{recipe.category}</em>
+                <h3>Ingredients</h3>
+                <ul>
+                    {ingredientElems.map((val, index) => (
+                        <li key={index}>{val}</li>
+                    ))}
+                </ul>
+                <h3>Preparation</h3>
+                <p>{recipe.preparation}</p>
+                {recipe.garnish ? (
+                    <p>Garnish with a {recipe.garnish}</p>
+                ) : (
+                    <span />
+                )}
+            </div>
+        );
+    } else {
+        return <span>404 could not find recipe {recipeKey}</span>;
     }
-    return (
-        <div className="Recipe">
-            <h2>{props.recipe.name}</h2>
-            <em>{props.recipe.category}</em>
-            <h3>Ingredients</h3>
-            <ul>
-                {ingredientElems.map((val, index) => (
-                    <li key={index}>{val}</li>
-                ))}
-            </ul>
-            <h3>Preparation</h3>
-            <p>{props.recipe.preparation}</p>
-            {props.recipe.garnish ? (
-                <p>Garnish with a {props.recipe.garnish}</p>
-            ) : (
-                <span />
-            )}
-            <div onClick={props.onClose}>close</div>
-        </div>
-    );
 }
 
 export default RecipeView;

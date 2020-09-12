@@ -1,59 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
+import HomeView from "./components/HomeView";
 import RecipeView from "./components/RecipeView";
 import { Recipe } from "./modules";
-const recipesJSON = require("./data/recipes.json");
 
 function App() {
-    const [openRecipe, setOpenRecipe] = useState<Recipe>();
-    const recipes: Recipe[] = recipesJSON;
-    const recipeMap = new Map(recipes.map(val => [val.name, val]));
-
-    function toggleRecipe(name: string) {
-        const recipeObj = recipeMap.get(name);
-        if (recipeObj) {
-            setOpenRecipe(recipeObj);
-        }
-    }
+    const recipesJSON = require("./data/recipes.json");
+    const recipes: Recipe[] = Array.from(recipesJSON).map(
+        val => new Recipe(val)
+    );
+    const recipeMap = new Map(
+        recipes.map(val => [val.name.replace(/ /g, "_"), val])
+    );
 
     // =========================  Rendering  ========================= //
-    const recipeTiles: JSX.Element[] = [];
-    for (const recipe of recipes) {
-        const ingredientNames = recipe.ingredients
-            .map(val => (val.ingredient ? val.ingredient : val.special))
-            .concat([recipe.garnish])
-            .slice(0, 3);
-        recipeTiles.push(
-            <div
-                className="recipeTile"
-                key={recipe.name}
-                onClick={val => toggleRecipe(recipe.name)}
-            >
-                <h3>{recipe.name}</h3>
-                {ingredientNames.join(", ")}
-                ...
-            </div>
-        );
-    }
     return (
-        <div className="App">
-            <div className="bgImage" />
-            <div className="bgFilter" />
+        <Router>
+            <div className="App">
+                <span className="appBody">
+                    <Switch>
+                        <Route path="/drink/">
+                            <RecipeView recipes={recipeMap} />
+                        </Route>
+                        <Route path="/">
+                            <HomeView recipes={recipes} />
+                        </Route>
+                    </Switch>
+                </span>
 
-            <div className="contentContainer">
-                {openRecipe ? (
-                    <RecipeView
-                        recipe={openRecipe}
-                        onClose={() => setOpenRecipe(undefined)}
-                    />
-                ) : (
-                    <span>
-                        <div className="logo">What to Drink</div>
-                        <div className="recipeList">{recipeTiles}</div>
-                    </span>
-                )}
+                <footer>
+                    <div className="footerContainer">
+                        <Link to="/" className="logo">
+                            What to Drink
+                        </Link>
+                        <div>&#169; Henry Seed 2020</div>
+                    </div>
+                </footer>
             </div>
-        </div>
+        </Router>
     );
 }
 
