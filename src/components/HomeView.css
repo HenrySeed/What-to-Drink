@@ -62,7 +62,7 @@ ul {
     margin-top: 5px;
 }
 
-@media only screen and (max-width: 1010px) {
+@media only screen and (max-width: 980px) {
     .recipeList {
         column-count: 2;
     }
@@ -87,6 +87,6 @@ ul {
         font-size: 50pt;
     }
     .bgImage {
-        height: 300px;
+        height: 350px;
     }
 }
