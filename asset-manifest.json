@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/What-to-Drink/static/css/main.1337599b.chunk.css",
-    "main.js": "/What-to-Drink/static/js/main.44c16a17.chunk.js",
-    "main.js.map": "/What-to-Drink/static/js/main.44c16a17.chunk.js.map",
+    "main.js": "/What-to-Drink/static/js/main.7f6f19fc.chunk.js",
+    "main.js.map": "/What-to-Drink/static/js/main.7f6f19fc.chunk.js.map",
     "runtime-main.js": "/What-to-Drink/static/js/runtime-main.62dddeb8.js",
     "runtime-main.js.map": "/What-to-Drink/static/js/runtime-main.62dddeb8.js.map",
     "static/js/2.9cce00cd.chunk.js": "/What-to-Drink/static/js/2.9cce00cd.chunk.js",
     "static/js/2.9cce00cd.chunk.js.map": "/What-to-Drink/static/js/2.9cce00cd.chunk.js.map",
     "index.html": "/What-to-Drink/index.html",
-    "precache-manifest.93546b6befdc1c770844c6d5866ab99f.js": "/What-to-Drink/precache-manifest.93546b6befdc1c770844c6d5866ab99f.js",
+    "precache-manifest.8a2d8377f486ecd8e2ca88af8f1cdacc.js": "/What-to-Drink/precache-manifest.8a2d8377f486ecd8e2ca88af8f1cdacc.js",
     "service-worker.js": "/What-to-Drink/service-worker.js",
     "static/css/main.1337599b.chunk.css.map": "/What-to-Drink/static/css/main.1337599b.chunk.css.map",
     "static/js/2.9cce00cd.chunk.js.LICENSE.txt": "/What-to-Drink/static/js/2.9cce00cd.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.62dddeb8.js",
     "static/js/2.9cce00cd.chunk.js",
     "static/css/main.1337599b.chunk.css",
-    "static/js/main.44c16a17.chunk.js"
+    "static/js/main.7f6f19fc.chunk.js"
   ]
 }
