@@ -6,8 +6,8 @@ import Search from "./Search";
 
 interface Props {
     recipes: Recipe[];
-    searchVal: string;
-    onSearch: (val: string) => void;
+    tags: string[];
+    onTagsChange: (tags: string[]) => void;
 }
 
 export default function HomeView(props: Props) {
@@ -39,7 +39,7 @@ export default function HomeView(props: Props) {
         <span>
             <div className="bgImage">
                 <div className="logo">What to Drink</div>
-                <Search searchVal={props.searchVal} onSearch={props.onSearch} />
+                <Search tags={props.tags} onTagsChange={props.onTagsChange} />
             </div>
             <div className="recipeList">{recipeTiles}</div>
         </span>

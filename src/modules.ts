@@ -1,3 +1,9 @@
+export interface IngredientData {
+    name: string;
+    taste: string;
+    abv: number;
+}
+
 export class Ingredient {
     name: string;
     amount: string;

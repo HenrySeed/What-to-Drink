@@ -1,58 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
 import HomeView from "./components/HomeView";
 import RecipeView from "./components/RecipeView";
 import { Recipe } from "./modules";
-
-function loadRecipes(): [Recipe[], Map<string, Recipe>] {
-    const recipesJSON = require("./data/recipes.json");
-    const recipes = Array.from(recipesJSON as any).map(val => new Recipe(val));
-    const recipeMap = new Map(recipes.map(val => [val.key, val]));
-    return [recipes, recipeMap];
-}
-
-function generateKeywordMap(recipes: Recipe[]): Map<string, Recipe[]> {
-    // Map of keywords => recipes for searching
-    const keywordMap = new Map<string, Recipe[]>();
-    for (const recipe of recipes) {
-        let keywords: string[] = recipe.ingredients.map(val => val.name);
-        keywords = keywords.concat(recipe.name.split(" "));
-        keywords = keywords.concat(
-            recipe.garnish ? recipe.garnish.split(" ") : []
-        );
-        keywords = keywords.map(val => val.toLowerCase().replace(/\s/g, ""));
-
-        for (const key of keywords) {
-            const mapVal = keywordMap.get(key);
-            if (mapVal) {
-                keywordMap.set(key, mapVal.concat(recipe));
-            } else {
-                keywordMap.set(key, [recipe]);
-            }
-        }
-    }
-    return keywordMap;
-}
+import { generateKeywordMap, loadRecipes } from "./utilities";
 
 function App(props: any) {
     const [recipes, recipeMap] = loadRecipes();
     const keywordMap = generateKeywordMap(recipes);
+    const [tags, setTags] = useState<string[]>([]);
+    const [searchResult, setsearchResult] = useState<Recipe[]>([]);
 
-    function handleSearch(val: string, fromUrl: boolean = false): Recipe[] {
-        if (!fromUrl) {
-            props.history.replace("?search=" + encodeURIComponent(val));
+    useEffect(() => {
+        let urltags = [];
+        if (props.location && props.location.search) {
+            urltags = JSON.parse(
+                decodeURIComponent(props.location.search).replace(
+                    "?search=",
+                    ""
+                )
+            );
         }
-        const lowerSearch = val.toLowerCase();
-        if (lowerSearch.trim() === "") {
-            return [];
+        setTags(urltags);
+        handleSearch(urltags);
+    }, []);
+
+    useEffect(() => {
+        props.history.replace(
+            "?search=" + encodeURIComponent(JSON.stringify(tags))
+        );
+        handleSearch(tags);
+    }, [tags]);
+
+    function handleSearch(intags: string[]) {
+        // preprocessing
+        let tags = intags.filter(val => val.trim() !== "");
+        tags = tags.filter(val => val !== undefined && val !== null);
+        if (tags.length < 1) {
+            setsearchResult([]);
         } else {
             let results: Map<
                 string,
                 { recipe: Recipe; priority: number }
             > = new Map();
 
-            for (const word of lowerSearch.split(/ |,/g)) {
+            for (const word of tags) {
                 if (word.trim() !== "") {
                     let keyResult: Recipe[] = [];
                     for (const [key, value] of Array.from(keywordMap)) {
@@ -83,17 +76,9 @@ function App(props: any) {
                 (a, b) => b.priority - a.priority
             );
 
-            return sortedResult.map(val => val.recipe);
+            setsearchResult(sortedResult.map(val => val.recipe));
         }
     }
-
-    let searchVal = "";
-    if (props.location && props.location.search) {
-        searchVal = decodeURIComponent(props.location.search)
-            .replace("?search=", "")
-            .replace("%20", " ");
-    }
-    const searchResult = handleSearch(searchVal, true);
 
     // =========================  Rendering  ========================= //
     return (
@@ -105,11 +90,11 @@ function App(props: any) {
                     </Route>
                     <Route path="/">
                         <HomeView
+                            tags={tags}
+                            onTagsChange={val => setTags(val)}
                             recipes={
                                 searchResult.length > 0 ? searchResult : recipes
                             }
-                            onSearch={handleSearch}
-                            searchVal={searchVal}
                         />
                     </Route>
                 </Switch>
