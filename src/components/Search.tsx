@@ -1,19 +1,20 @@
+import add from "@iconify/icons-mdi/add";
 import close from "@iconify/icons-mdi/close-circle";
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import { IngredientData } from "../modules";
 import "./Search.css";
 
-function Tag(props: { name: string; removeTag: (name: string) => void }) {
+interface TagProps {
+    name: string;
+    action: (name: string) => void;
+    tagIcon: any;
+}
+function Tag(props: TagProps) {
     return (
-        <span className="tag">
-            {props.name}{" "}
-            <span
-                className="tagClose"
-                onClick={() => props.removeTag(props.name)}
-            >
-                <Icon icon={close} />
-            </span>
+        <span className="tag" onClick={() => props.action(props.name)}>
+            {props.name}
+            <Icon icon={props.tagIcon} className="tagClose" />
         </span>
     );
 }
@@ -54,14 +55,17 @@ function Search(props: Props) {
             setsuggestions([]);
         } else {
             const suggestions: Set<string> = new Set();
+            const possibleIngr = ingredients.filter(
+                val => !props.tags.includes(val.name)
+            );
             // first check for complete matches
-            for (const ingredient of ingredients) {
+            for (const ingredient of possibleIngr) {
                 if (ingredient.name.slice(0, val.length) === val) {
                     suggestions.add(ingredient.name);
                 }
             }
             // now check for partial matches
-            for (const ingredient of ingredients) {
+            for (const ingredient of possibleIngr) {
                 if (ingredient.name.includes(val)) {
                     suggestions.add(ingredient.name);
                 }
@@ -89,17 +93,17 @@ function Search(props: Props) {
                 <div className="searchDropDown">
                     <ul>
                         {suggestions.map(val => (
-                            <li
-                                onClick={() => {
+                            <Tag
+                                name={val}
+                                key={val}
+                                action={name => {
                                     props.onTagsChange(
                                         props.tags.concat([val])
                                     );
                                     handleInputChange("");
                                 }}
-                                key={val}
-                            >
-                                {val}
-                            </li>
+                                tagIcon={add}
+                            />
                         ))}
                     </ul>
                 </div>
@@ -109,7 +113,12 @@ function Search(props: Props) {
 
             <div className="tags">
                 {props.tags.map(val => (
-                    <Tag name={val} key={val} removeTag={removeTag} />
+                    <Tag
+                        name={val}
+                        key={val}
+                        action={removeTag}
+                        tagIcon={close}
+                    />
                 ))}
             </div>
         </span>
