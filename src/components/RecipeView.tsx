@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Recipe } from "../modules";
 import "./RecipeView.css";
@@ -12,6 +12,10 @@ function RecipeView(props: Props) {
     const path = useLocation().pathname.split("/");
     const recipeKey = path[path.length - 1];
     const recipe = props.recipes.get(recipeKey);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     if (recipe) {
         for (const val of recipe.ingredients) {

@@ -18,7 +18,7 @@
     border-radius: 15px;
     margin-top: 30px;
     color: #ffffff;
-    border: 3px solid #ffffff;
+    border: 2px solid #ffffff;
     background-color: #000;
 }
 
@@ -30,7 +30,8 @@ input {
     background: none;
     font-size: 16pt;
     height: 55px;
-    width: calc(100% - 30px);
+    width: calc(100% - 120px);
+    float: left;
 }
 
 ::placeholder {
@@ -51,10 +52,8 @@ input {
 
 .closeIcon {
     transform: rotate(360deg);
-    margin-left: -45px;
-    margin-top: 13px;
+    margin-top: 15px;
     font-size: 20pt;
-
     vertical-align: middle;
     cursor: pointer;
     position: absolute;
@@ -116,9 +115,10 @@ input {
 
     .closeIcon {
         font-size: 16pt;
+        margin-top: 13px;
     }
 
     .tags {
-        margin-top: 10px;
+        padding-top: 0px;
     }
 }

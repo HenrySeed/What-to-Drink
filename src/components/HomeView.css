@@ -17,6 +17,7 @@
     min-height: max(50vh, 300px);
     box-sizing: border-box;
     padding-top: 40px;
+    padding-bottom: 15px;
     top: 0px;
     left: 0px;
 }
@@ -63,7 +64,7 @@ ul {
     margin-top: 5px;
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 850px) {
     .recipeList {
         column-count: 2;
     }
