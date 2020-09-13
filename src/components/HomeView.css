@@ -12,8 +12,7 @@
     background-size: cover;
     width: 100%;
     position: relative;
-    height: 50vh;
-    min-height: 300px;
+    min-height: max(50vh, 300px);
     box-sizing: border-box;
     padding-top: 40px;
     top: 0px;
@@ -84,9 +83,9 @@ ul {
 }
 @media only screen and (max-width: 400px) {
     .logo {
-        font-size: 50pt;
+        font-size: 45pt;
     }
     .bgImage {
-        height: 350px;
+        padding-top: 10px;
     }
 }

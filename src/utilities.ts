@@ -1,5 +1,55 @@
 import { Recipe } from "./modules";
 
+export function getSearchedRecipes(
+    intags: string[],
+    keywordMap: Map<string, Recipe[]>
+): Recipe[] {
+    // preprocessing
+    let tags = intags.filter(val => val.trim() !== "");
+    tags = tags.filter(val => val !== undefined && val !== null);
+    if (tags.length < 1) {
+        return [];
+    } else {
+        let results: Map<
+            string,
+            { recipe: Recipe; priority: number }
+        > = new Map();
+
+        for (const word of tags) {
+            if (word.trim() !== "") {
+                let keyResult: Recipe[] = [];
+                for (const [key, value] of Array.from(keywordMap)) {
+                    if (key.includes(word)) {
+                        keyResult = keyResult.concat(value);
+                    }
+                }
+                if (keyResult) {
+                    for (const recipe of keyResult) {
+                        const resultRecipe = results.get(recipe.key);
+                        if (resultRecipe) {
+                            resultRecipe.priority += 1;
+                        } else {
+                            results.set(recipe.key, {
+                                recipe: recipe,
+                                priority: 1
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
+        const resultArray = Array.from(results.values());
+
+        // sort the results by priority
+        const sortedResult = resultArray.sort(
+            (a, b) => b.priority - a.priority
+        );
+
+        return sortedResult.map(val => val.recipe);
+    }
+}
+
 export function loadRecipes(): [Recipe[], Map<string, Recipe>] {
     const recipesJSON = require("./data/recipes.json");
     const recipes = Array.from(recipesJSON as any).map(val => new Recipe(val));

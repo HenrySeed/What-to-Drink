@@ -4,11 +4,16 @@ import "./App.css";
 import HomeView from "./components/HomeView";
 import RecipeView from "./components/RecipeView";
 import { Recipe } from "./modules";
-import { generateKeywordMap, loadRecipes } from "./utilities";
+import {
+    generateKeywordMap,
+    getSearchedRecipes,
+    loadRecipes
+} from "./utilities";
+
+const [recipes, recipeMap] = loadRecipes();
+const keywordMap = generateKeywordMap(recipes);
 
 function App(props: any) {
-    const [recipes, recipeMap] = loadRecipes();
-    const keywordMap = generateKeywordMap(recipes);
     const [tags, setTags] = useState<string[]>([]);
     const [searchResult, setsearchResult] = useState<Recipe[]>([]);
 
@@ -23,62 +28,15 @@ function App(props: any) {
             );
         }
         setTags(urltags);
-        handleSearch(urltags);
-    }, []);
+        setsearchResult(getSearchedRecipes(urltags, keywordMap));
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         props.history.replace(
             "?search=" + encodeURIComponent(JSON.stringify(tags))
         );
-        handleSearch(tags);
-    }, [tags]);
-
-    function handleSearch(intags: string[]) {
-        // preprocessing
-        let tags = intags.filter(val => val.trim() !== "");
-        tags = tags.filter(val => val !== undefined && val !== null);
-        if (tags.length < 1) {
-            setsearchResult([]);
-        } else {
-            let results: Map<
-                string,
-                { recipe: Recipe; priority: number }
-            > = new Map();
-
-            for (const word of tags) {
-                if (word.trim() !== "") {
-                    let keyResult: Recipe[] = [];
-                    for (const [key, value] of Array.from(keywordMap)) {
-                        if (key.includes(word)) {
-                            keyResult = keyResult.concat(value);
-                        }
-                    }
-                    if (keyResult) {
-                        for (const recipe of keyResult) {
-                            const resultRecipe = results.get(recipe.key);
-                            if (resultRecipe) {
-                                resultRecipe.priority += 1;
-                            } else {
-                                results.set(recipe.key, {
-                                    recipe: recipe,
-                                    priority: 1
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-
-            const resultArray = Array.from(results.values());
-
-            // sort the results by priority
-            const sortedResult = resultArray.sort(
-                (a, b) => b.priority - a.priority
-            );
-
-            setsearchResult(sortedResult.map(val => val.recipe));
-        }
-    }
+        setsearchResult(getSearchedRecipes(tags, keywordMap));
+    }, [tags]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // =========================  Rendering  ========================= //
     return (
