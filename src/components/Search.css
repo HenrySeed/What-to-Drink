@@ -28,9 +28,10 @@ input {
     border: none;
     outline: none;
     background: none;
+    box-sizing: border-box;
     font-size: 16pt;
     height: 55px;
-    width: calc(100% - 120px);
+    width: 100%;
     float: left;
 }
 
@@ -53,6 +54,7 @@ input {
 .closeIcon {
     transform: rotate(360deg);
     margin-top: 15px;
+    margin-left: -45px;
     font-size: 20pt;
     vertical-align: middle;
     cursor: pointer;
@@ -63,7 +65,7 @@ input {
 
 .searchDropDown {
     width: 100%;
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     z-index: 20;
@@ -71,8 +73,7 @@ input {
     border-radius: 10px;
     top: 53px;
     min-height: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .ingrSuggestion {
@@ -91,7 +92,7 @@ input {
     font-size: 13pt;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 8px 12px 8px 12px;
+    padding: 8px 12px 12px 12px;
     margin: 0px 5px 10px 5px;
     cursor: pointer;
 }
@@ -99,7 +100,7 @@ input {
 .tag > .tagClose {
     display: inline-block;
     vertical-align: middle;
-    margin-top: -4px;
+    margin-top: -3px;
     margin-left: 5px;
     font-size: 14pt;
 }

@@ -78,24 +78,27 @@ function Search(props: Props) {
         <span>
             <span className="inputanchor">
                 <div className="inputContainer">
-                    <input
-                        autoFocus
-                        value={searchVal}
-                        placeholder="I have some..."
-                        onChange={event =>
-                            handleInputChange(event.target.value)
-                        }
-                    />
-                    {searchVal ? (
-                        <span
-                            className="closeIcon"
-                            onClick={() => handleInputChange("")}
-                        >
-                            <Icon icon={close} />
-                        </span>
-                    ) : (
-                        <span />
-                    )}
+                    <div>
+                        <input
+                            autoFocus
+                            value={searchVal}
+                            placeholder="I have some..."
+                            onChange={event =>
+                                handleInputChange(event.target.value)
+                            }
+                        />
+                        {searchVal ? (
+                            <span
+                                className="closeIcon"
+                                onClick={() => handleInputChange("")}
+                            >
+                                <Icon icon={close} />
+                            </span>
+                        ) : (
+                            <span />
+                        )}
+                    </div>
+
                     {suggestions.length > 0 ? (
                         <div className="searchDropDown">
                             <ul>
