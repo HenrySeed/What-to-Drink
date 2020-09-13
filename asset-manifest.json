@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/What-to-Drink/static/css/main.f2db0f24.chunk.css",
-    "main.js": "/What-to-Drink/static/js/main.0a569914.chunk.js",
-    "main.js.map": "/What-to-Drink/static/js/main.0a569914.chunk.js.map",
+    "main.css": "/What-to-Drink/static/css/main.1452f576.chunk.css",
+    "main.js": "/What-to-Drink/static/js/main.c7102881.chunk.js",
+    "main.js.map": "/What-to-Drink/static/js/main.c7102881.chunk.js.map",
     "runtime-main.js": "/What-to-Drink/static/js/runtime-main.62dddeb8.js",
     "runtime-main.js.map": "/What-to-Drink/static/js/runtime-main.62dddeb8.js.map",
     "static/js/2.b38b4bc7.chunk.js": "/What-to-Drink/static/js/2.b38b4bc7.chunk.js",
     "static/js/2.b38b4bc7.chunk.js.map": "/What-to-Drink/static/js/2.b38b4bc7.chunk.js.map",
     "index.html": "/What-to-Drink/index.html",
-    "precache-manifest.b972307e8130621f5709db6fe297d7b0.js": "/What-to-Drink/precache-manifest.b972307e8130621f5709db6fe297d7b0.js",
+    "precache-manifest.7ab44974214f6dd5bdcc81184e340f3f.js": "/What-to-Drink/precache-manifest.7ab44974214f6dd5bdcc81184e340f3f.js",
     "service-worker.js": "/What-to-Drink/service-worker.js",
-    "static/css/main.f2db0f24.chunk.css.map": "/What-to-Drink/static/css/main.f2db0f24.chunk.css.map",
+    "static/css/main.1452f576.chunk.css.map": "/What-to-Drink/static/css/main.1452f576.chunk.css.map",
     "static/js/2.b38b4bc7.chunk.js.LICENSE.txt": "/What-to-Drink/static/js/2.b38b4bc7.chunk.js.LICENSE.txt",
     "static/media/HomeView.css": "/What-to-Drink/static/media/background_2.c3185002.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.62dddeb8.js",
     "static/js/2.b38b4bc7.chunk.js",
-    "static/css/main.f2db0f24.chunk.css",
-    "static/js/main.0a569914.chunk.js"
+    "static/css/main.1452f576.chunk.css",
+    "static/js/main.c7102881.chunk.js"
   ]
 }
