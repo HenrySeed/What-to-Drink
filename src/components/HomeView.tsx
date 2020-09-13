@@ -39,7 +39,7 @@ export default function HomeView(props: Props) {
     return (
         <span>
             <div className="bgImage">
-                <img src={svgLogo} className="logo" />
+                <img src={svgLogo} className="logo" alt="What to Drink" />
                 <Search tags={props.tags} onTagsChange={props.onTagsChange} />
             </div>
             <div className="recipeList">{recipeTiles}</div>

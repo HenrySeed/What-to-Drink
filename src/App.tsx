@@ -61,7 +61,7 @@ function App(props: any) {
 
             <footer>
                 <div className="footerContainer">
-                    <img className="logo" src={svgLogo} />
+                    <img className="logo" src={svgLogo} alt="What to Drink" />
                     <div>
                         &#169;{" "}
                         <a
