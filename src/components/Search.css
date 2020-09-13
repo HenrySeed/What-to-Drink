@@ -1,19 +1,36 @@
-.inputContainer {
+.inputanchor {
     position: relative;
-}
-
-input {
+    margin-left: auto;
+    margin-right: auto;
     max-width: 450px;
     width: 90%;
-    height: 55px;
-    font-size: 16pt;
-    background: none;
+    height: 100px;
+    display: block;
+    z-index: 1;
+}
+
+.inputContainer {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+    width: 100%;
     border-radius: 15px;
     margin-top: 30px;
     color: #ffffff;
-    padding-left: 20px;
-    outline: none;
     border: 3px solid #ffffff;
+    background-color: #000;
+}
+
+input {
+    padding-left: 20px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16pt;
+    height: 55px;
+    width: calc(100% - 30px);
 }
 
 ::placeholder {
@@ -35,7 +52,9 @@ input {
 .closeIcon {
     transform: rotate(360deg);
     margin-left: -45px;
-    margin-top: 46px;
+    margin-top: 13px;
+    font-size: 20pt;
+
     vertical-align: middle;
     cursor: pointer;
     position: absolute;
@@ -44,7 +63,6 @@ input {
 }
 
 .searchDropDown {
-    position: absolute;
     width: 100%;
     display: block;
     margin-left: auto;
@@ -53,7 +71,6 @@ input {
     left: 0;
     border-radius: 10px;
     top: 53px;
-    background-color: #000;
     min-height: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -64,7 +81,7 @@ input {
 }
 
 .tags {
-    margin-top: 20px;
+    padding-top: 20px;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -76,8 +93,7 @@ input {
     border: 2px solid white;
     border-radius: 10px;
     padding: 8px 12px 8px 12px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 0px 5px 10px 5px;
     cursor: pointer;
 }
 
@@ -91,9 +107,15 @@ input {
 
 @media only screen and (max-width: 400px) {
     input {
-        margin-top: 20px;
+        font-size: 14pt;
         height: 45px;
-        font-size: 12pt;
+    }
+    .inputContainer {
+        margin-top: 20px;
+    }
+
+    .closeIcon {
+        font-size: 16pt;
     }
 
     .tags {

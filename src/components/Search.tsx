@@ -75,52 +75,65 @@ function Search(props: Props) {
     }
 
     return (
-        <span className="inputContainer">
-            <input
-                autoFocus
-                value={searchVal}
-                placeholder="I have some..."
-                onChange={event => handleInputChange(event.target.value)}
-            />
-            {searchVal ? (
-                <span onClick={() => handleInputChange("")}>
-                    <Icon className="closeIcon" icon={close} />
-                </span>
-            ) : (
-                <span />
-            )}
-            {suggestions.length > 0 ? (
-                <div className="searchDropDown">
-                    <ul>
-                        {suggestions.map(val => (
-                            <Tag
-                                name={val}
-                                key={val}
-                                action={name => {
-                                    props.onTagsChange(
-                                        props.tags.concat([val])
-                                    );
-                                    handleInputChange("");
-                                }}
-                                tagIcon={add}
-                            />
-                        ))}
-                    </ul>
+        <span>
+            <span className="inputanchor">
+                <div className="inputContainer">
+                    <input
+                        autoFocus
+                        value={searchVal}
+                        placeholder="I have some..."
+                        onChange={event =>
+                            handleInputChange(event.target.value)
+                        }
+                    />
+                    {searchVal ? (
+                        <span
+                            className="closeIcon"
+                            onClick={() => handleInputChange("")}
+                        >
+                            <Icon icon={close} />
+                        </span>
+                    ) : (
+                        <span />
+                    )}
+                    {suggestions.length > 0 ? (
+                        <div className="searchDropDown">
+                            <ul>
+                                {suggestions.map(val => (
+                                    <Tag
+                                        name={val}
+                                        key={val}
+                                        action={name => {
+                                            props.onTagsChange(
+                                                props.tags.concat([val])
+                                            );
+                                            handleInputChange("");
+                                        }}
+                                        tagIcon={add}
+                                    />
+                                ))}
+                            </ul>
+                        </div>
+                    ) : (
+                        <span />
+                    )}
+                </div>
+            </span>
+
+            {props.tags.length > 0 ? (
+                <div className="tags">
+                    {props.tags.map(val => (
+                        <Tag
+                            name={val}
+                            key={val}
+                            action={removeTag}
+                            tagIcon={close}
+                        />
+                    ))}
                 </div>
             ) : (
                 <span />
             )}
-
-            <div className="tags">
-                {props.tags.map(val => (
-                    <Tag
-                        name={val}
-                        key={val}
-                        action={removeTag}
-                        tagIcon={close}
-                    />
-                ))}
-            </div>
         </span>
     );
 }
