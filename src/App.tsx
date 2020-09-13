@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
 import HomeView from "./components/HomeView";
 import RecipeView from "./components/RecipeView";
 import { Recipe } from "./modules";
+import svgLogo from "./resources/logo_white.svg";
 import {
     generateKeywordMap,
     getSearchedRecipes,
@@ -60,9 +61,7 @@ function App(props: any) {
 
             <footer>
                 <div className="footerContainer">
-                    <Link to="/" className="logo">
-                        What to Drink
-                    </Link>
+                    <img className="logo" src={svgLogo} />
                     <div>
                         &#169;{" "}
                         <a

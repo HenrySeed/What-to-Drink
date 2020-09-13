@@ -2,9 +2,8 @@
     font-family: "Abril Fatface", cursive;
     position: relative;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
+    max-width: 700px;
+    margin: 40px auto 20px auto;
     font-size: 60pt;
 }
 
@@ -71,6 +70,9 @@ ul {
 }
 
 @media only screen and (max-width: 600px) {
+    .bgImage {
+        min-height: auto;
+    }
     .recipeList {
         column-count: 1;
     }
@@ -86,7 +88,7 @@ ul {
 }
 @media only screen and (max-width: 400px) {
     .logo {
-        font-size: 45pt;
+        margin-top: 20px;
     }
     .bgImage {
         padding-top: 10px;

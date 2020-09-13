@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Recipe } from "../modules";
+import svgLogo from "../resources/logo_white.svg";
 import "./HomeView.css";
 import Search from "./Search";
 
@@ -38,7 +39,7 @@ export default function HomeView(props: Props) {
     return (
         <span>
             <div className="bgImage">
-                <div className="logo">What to Drink</div>
+                <img src={svgLogo} className="logo" />
                 <Search tags={props.tags} onTagsChange={props.onTagsChange} />
             </div>
             <div className="recipeList">{recipeTiles}</div>
